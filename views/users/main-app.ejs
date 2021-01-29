@@ -1,0 +1,64 @@
+<%- include('../includes/head.ejs') %>
+
+<script src="js/plotly-latest.min.js"></script>
+
+<%- include('../includes/navigation.ejs') %>
+<hr>
+<div class="flexbox">
+<% for (let share of shares ) { %>
+<div > 
+    <form action="/<%=share%>?graphshow=true" method="POST">
+        
+    <button type="submit" class="btn btn-outline-primary"><%=share%>		</button>
+    <input type="hidden" name="shareSym" value="<%= share %>">
+    
+</form>
+    </div>
+    <% } %>
+</div>
+<hr>
+<hr>
+
+
+<% if(graph===true) { %>
+  <div style="display: flex;">
+<div id="myDiv" style="width: 50%;"></div>
+<div id="prediction" style="width: 50%;"></div>
+</div>
+
+<script>
+    
+      
+    Plotly.d3.csv("data/<%=shareSym%>.csv", function(err, rows){
+
+function unpack(rows, key) {
+return rows.map(function(row) { return row[key]; });
+}
+
+
+var trace1 = {
+type: "scatter",
+mode: "lines",
+name: '<%= shareSym %>',
+x: unpack(rows, 'Date'),
+y: unpack(rows, 'Close'),
+line: {color: '#17BECF'}
+}
+
+
+
+var data = [trace1];
+
+var layout = {
+title: '',
+};
+
+Plotly.newPlot('myDiv', data, layout);
+Plotly.newPlot('prediction', data, layout);
+})
+  
+  </script>
+  <% } %>
+
+
+<%- include('../includes/end.ejs') %>

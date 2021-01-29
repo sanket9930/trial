@@ -1,0 +1,23 @@
+{
+  "name": "stockmarketanalysisandpredictionusingai",
+  "version": "1.0.0",
+  "description": "predicting the stock market(technical analysis) using a.i.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
+  },
+  "author": "kailash,sanket,yogesh,mihir",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^2.0.2"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "csv-express": "^1.2.2",
+    "ejs": "^3.0.1",
+    "express": "^4.17.1",
+    "plotly.js-dist": "^1.52.3",
+    "unirest": "^0.6.0"
+  }
+}

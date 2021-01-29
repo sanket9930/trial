@@ -1,0 +1,41 @@
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-light">
+        <a class="navbar-brand" href="#"><img src="resources/logo.PNG" alt="logo" style="height:60px; width: 90px; margin-right: 50px;"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="true" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="navbar-collapse collapse show" id="navbarColor02" >
+            <ul class="nav nav-pills">
+                
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Account Overview</a>
+                  <div class="dropdown-menu">
+                    <% if (loggedIn===true) { %>
+                    <a class="dropdown-item" href="/account-setting">Account Setting</a>
+                    <a class="dropdown-item" href="/my-shares">My Shares</a>
+                    <a class="dropdown-item" href="/tracking-shares">Tracking Shares</a>
+                    <a class="dropdown-item" href="/logout">Logout</a><%}
+                    else { %> 
+                      <a class="dropdown-item" href="/log-in">Log In</a>
+                      <a class="dropdown-item" href="/sign-in">Sign Up</a>
+                      <%
+                     }%>
+                    
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link <% if(path==='/') { %> active <%}%>" href="/"  >Dashboard <%{graphShow:false}%></a>
+                </li>
+                
+                <li class="nav-item">
+                  <a class="nav-link <% if(path==='/about-us') { %> active <%}%> " href="/about-us" >About us</a>
+                </li>
+                
+                <li class="nav-item">
+                  <a class="nav-link <% if(path==='/faqs') { %> active <%}%> " href="/faqs" >FAQs</a>
+                </li>
+              </ul>
+              
+        </div>
+        </nav>
